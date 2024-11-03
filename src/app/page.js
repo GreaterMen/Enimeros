@@ -5,27 +5,21 @@ import { MacbookScroll } from "../components/ui/macbook-scroll";
 import { FeaturesSectionDemo } from "../components/ui/feature-section";
 import { PinContainer } from "../components/ui/3d-pin";
 import { Timeline } from "../components/ui/timeline";
-import { BentoGridItem } from "../components/ui/bento-grid";
 import { BackgroundBeamsDemo } from "../components/ui/background-beams";
 
 import { BentoGrid } from "../components/ui/bento-grid";
-import { IconChartBar, IconTrendingUp, IconBell, IconShield, IconHeart, IconStar } from "@tabler/icons-react";
 import { FloatingNav } from "../components/ui/floating-navbar";
 import { BackgroundLines } from "../components/ui/background-lines";
 import { TypewriterEffectSmooth, TypewriterEffectSmoothDemo } from "../components/ui/typewriter-effect";
 
-
-import { IconHome, IconList, IconInfoCircle, IconRoad, IconFileText } from "@tabler/icons-react";
-
-
 import Link from "next/link";
 
 const navItems = [
-  { name: "Home", link: "#home", icon: <IconHome size={20} /> },
-  { name: "Features", link: "#features", icon: <IconList size={20} /> },
-  { name: "About", link: "#about", icon: <IconInfoCircle size={20} /> },
-  { name: "Roadmap", link: "#roadmap", icon: <IconRoad size={20} /> },
-  { name: "Docs", link: "#docs", icon: <IconFileText size={20} /> },
+  { name: "Home", link: "#home" },
+  { name: "Features", link: "#features" },
+  { name: "About", link: "#about" },
+  { name: "Roadmap", link: "#roadmap" },
+  { name: "Docs", link: "#docs" },
 ];
 
 const timelineData = [
@@ -159,45 +153,7 @@ const timelineData = [
   
 ];
 
-const features = [
-  {
-    title: "Real-time Market Data",
-    description:
-      "Access live market data from multiple exchanges, aggregated in real-time for accurate and up-to-date information.",
-    icon: <IconChartBar size={40} className="text-blue-500" />,
-  },
-  {
-    title: "AI-Powered Trend Analysis",
-    description:
-      "Utilize advanced AI algorithms to detect market trends and make informed trading decisions.",
-    icon: <IconTrendingUp size={40} className="text-green-500" />,
-  },
-  {
-    title: "Custom Alerts",
-    description:
-      "Set up personalized alerts for price movements, market trends, and more, delivered directly to you.",
-    icon: <IconBell size={40} className="text-red-500" />,
-  },
-  {
-    title: "Secure Transactions",
-    description:
-      "Ensure all your transactions are secure with our state-of-the-art encryption protocols.",
-    icon: <IconShield size={40} className="text-yellow-500" />,
-  },
-  {
-    title: "User-Friendly Interface",
-    description:
-      "Navigate through our platform effortlessly with an intuitive and responsive design.",
-    icon: <IconHeart size={40} className="text-pink-500" />,
-  },
-  {
-    title: "Premium Support",
-    description:
-      "Get assistance anytime with our dedicated premium support team ready to help you.",
-    icon: <IconStar size={40} className="text-purple-500" />,
-  },
-  // Add more features as needed
-];
+
 
 
 export default function Home() {

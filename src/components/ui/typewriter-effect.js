@@ -1,28 +1,43 @@
-// components/ui/typewriter-effect.js
-
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, useAnimationControls } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 export const TypewriterEffectSmooth = ({
   words,
   className,
   cursorClassName,
 }) => {
-  // Combine all words into a single string and split into characters
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const cursorControls = useAnimationControls();
+  
   const textArray = words
     .map((word) => word.text)
     .join("")
     .split("");
+
+  useEffect(() => {
+    const animateText = async () => {
+      for (let i = 0; i <= textArray.length; i++) {
+        setCurrentIndex(i);
+        await new Promise(resolve => setTimeout(resolve, 50)); // Match this with character animation speed
+        await cursorControls.start({ 
+          x: `${i * 0.6}em`,
+          transition: { duration: 0.05 }
+        });
+      }
+    };
+
+    animateText();
+  }, [textArray.length, cursorControls]);
 
   const renderText = () => {
     return (
       <span
         className="bg-clip-text text-transparent inline-block"
         style={{
-          backgroundImage: `linear-gradient(to bottom, #2E2E2E, #D4AF37)`, // Vertical gradient from dark grey to gold
+          backgroundImage: `linear-gradient(to bottom, #2E2E2E, #D4AF37)`,
         }}
       >
         {textArray.map((char, index) => (
@@ -44,27 +59,31 @@ export const TypewriterEffectSmooth = ({
 
   return (
     <div className={cn("flex flex-col items-center justify-center my-6", className)}>
-      {/* Text Container */}
-      <div className="inline-block">
+      <div className="inline-block relative">
         <div className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-center whitespace-nowrap">
           {renderText()}
+          <motion.span
+            initial={{ opacity: 0, x: 0 }}
+            animate={cursorControls}
+            style={{ opacity: 1 }}
+            className={cn(
+              "absolute top-0 -right-[4px] block rounded-sm w-[2px] h-4 sm:h-6 xl:h-8 bg-blue-500",
+              cursorClassName
+            )}
+          >
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.7,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+              className="absolute inset-0 bg-blue-500"
+            />
+          </motion.span>
         </div>
       </div>
-      {/* Cursor */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          duration: 1.2, // Slower blinking
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut",
-        }}
-        className={cn(
-          "ml-1 block rounded-sm w-[2px] h-4 sm:h-6 xl:h-8 bg-blue-500",
-          cursorClassName
-        )}
-      ></motion.span>
     </div>
   );
 };

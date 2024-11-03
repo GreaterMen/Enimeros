@@ -155,7 +155,14 @@ export const SkeletonTwo = () => {
     "imagefeat2.png",
   ];
 
+  // Define fixed rotations instead of random
+  const rotations = [-10, 5, -5, 10]; // Predefined rotation values
+  
   const imageVariants = {
+    initial: {
+      scale: 1,
+      rotate: 0,
+    },
     whileHover: {
       scale: 1.5,
       rotate: 0,
@@ -167,52 +174,56 @@ export const SkeletonTwo = () => {
       zIndex: 100,
     },
   };
+
   return (
-    (<div
-      className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
-      {/* TODO */}
+    <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
       <div className="flex flex-row -ml-20">
         {images.map((image, idx) => (
           <motion.div
+            initial="initial"
             variants={imageVariants}
             key={"images-first" + idx}
             style={{
-              rotate: Math.random() * 20 - 10,
+              rotate: rotations[idx % rotations.length], // Use fixed rotation
             }}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden">
+            className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
+          >
             <Image
               src="/devtools.png"
-              alt="*Analysis images"
+              alt="Analysis images"
               width="500"
               height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0" />
+              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
+            />
           </motion.div>
         ))}
       </div>
       <div className="flex flex-row">
         {images.map((image, idx) => (
           <motion.div
+            initial="initial"
             key={"images-second" + idx}
             style={{
-              rotate: Math.random() * 20 - 10,
+              rotate: rotations[(idx + 2) % rotations.length], // Offset rotation for second row
             }}
             variants={imageVariants}
             whileHover="whileHover"
             whileTap="whileTap"
-            className="rounded-xl -mr-4 mt-4 p-1 bg-black dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden">
+            className="rounded-xl -mr-4 mt-4 p-1 bg-black dark:bg-neutral-800 dark:border-neutral-700 border border-neutral-100 flex-shrink-0 overflow-hidden"
+          >
             <Image
               src="/claudeImage.png"
               alt="bali images"
               width="500"
               height="500"
-              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0" />
+              className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover flex-shrink-0"
+            />
           </motion.div>
         ))}
       </div>
-      
-    </div>)
+    </div>
   );
 };
 
