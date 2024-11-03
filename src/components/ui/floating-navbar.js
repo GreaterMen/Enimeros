@@ -1,0 +1,37 @@
+// components/ui/floating-navbar.js
+
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+
+export const FloatingNav = ({ navItems, className }) => {
+  return (
+    <motion.div
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      style={{ backgroundColor: "rgba(192,192,192,0.9)" }}
+      className={cn(
+        "flex max-w-fit fixed top-4 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-md z-50 pr-2 pl-8 py-2 items-center justify-center space-x-4",
+        className
+      )}
+    >
+      {navItems.map((navItem, idx) => (
+        <Link
+          key={`link-${idx}`}
+          href={navItem.link}
+          className="relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
+        >
+          <span className="block sm:hidden">{navItem.icon}</span>
+          <span className="hidden sm:block text-sm">{navItem.name}</span>
+        </Link>
+      ))}
+      <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+        <span>Login</span>
+        <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
+      </button>
+    </motion.div>
+  );
+};
