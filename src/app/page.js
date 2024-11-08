@@ -215,7 +215,7 @@ export default function Home() {
 </section>
 
        {/* Combined About and Features Section */}
-       <section id="about-features" className=" w-full dark:bg-black bg-white  dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative flex items-center justify-center relative  sm:py-28 md:py-32 lg:py-40 xl:py-48 2xl:py-56">
+       <section id="about-features"lassName=" w-full dark:bg-black bg-white  dark:bg-grid-small-white/[0.2] bg-grid-small-black/[0.2] relative flex items-center justify-center relative  sm:py-28 md:py-32 lg:py-40 xl:py-48 2xl:py-56">
           {/* Features Div */}
           <FeaturesSectionDemo/>
           {/* About Div */}
