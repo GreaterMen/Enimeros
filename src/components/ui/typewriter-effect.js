@@ -91,21 +91,11 @@ export const TypewriterEffectSmooth = ({
 // TypewriterEffectSmoothDemo Component
 export function TypewriterEffectSmoothDemo() {
   const words = [
-    { text: "Where ", className: "" },
-    { text: "Web3 ", className: "" },
-    { text: "meets ", className: "" },
-    { text: "financial ", className: "" },
-    { text: "intelligence. ", className: "" },
-    { text: "Real-time ", className: "" },
-    { text: "market ", className: "" },
-    { text: "analysis ", className: "" },
-    { text: "powered ", className: "" },
-    { text: "by ", className: "" },
-    { text: "blockchain ", className: "" },
-    { text: "and ", className: "" },
-    { text: "advanced ", className: "" },
-    { text: "LLM ", className: "" },
-    { text: "technology.", className: "" },
+    { text: "Prove ", className: "" },
+    { text: "yourself ", className: "" },
+    { text: "as ", className: "" },
+    { text: "number.  ", className: "" },
+    { text: "1. ", className: "" },
   ];
 
   // Scroll Handler Function
