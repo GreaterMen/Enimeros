@@ -46,7 +46,7 @@ const timelineData = [
   {
     title: "Step 3: Start Trading",
     content: (
-      <p className="text-white font-sans bg-clip-text text-transparent text-left bg-gradient-to-b  from-neutral-600 to-neutral-500 font-bold">
+      <p className="text-white bg-clip-text text-transparent text-left bg-gradient-to-b  from-neutral-600 to-neutral-500 font-bold">
 
         <ul className="text-lg md:text-xl lg:text-2xl list-disc space-y-4 ">
           <li>Trade on any Solana DEX</li>
@@ -60,8 +60,7 @@ const timelineData = [
   {
     title: "Step 4: Collect Rewards",
     content: (
-      <p className="text-white
-  font-sans 
+      <p className="text-white 
   bg-clip-text 
   text-transparent 
   text-left 
