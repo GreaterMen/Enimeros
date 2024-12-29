@@ -17,48 +17,36 @@ const gridSpans = [
 
 const features = [
   {
-    title: "Predictive Analytics Engine",
-    description:
-      "Our AI continuously scans financial reports, earnings calls, and social sentiment, using computer vision to analyze charts and patterns across multiple timeframes. Receive early warnings about market shifts before they happen.",
+    title: "Weekly Tournaments",
+    description: "Enter with $5, compete for 7 days, top 20 share the prize pool. New tournament every Monday.",
+    image: "/trophy.png"
   },
   {
-    title: "Social Intelligence Engine",
-    description: "Our AI continuously monitors social media conversations across Twitter, Reddit, and other platforms to detect market-moving information before it impacts prices. By analyzing millions of posts, tracking influential accounts, and learning from historical patterns, we provide both immediate alerts for urgent opportunities and deeper insights for longer-term plays. The system learns from every prediction, constantly improving its accuracy while filtering out noise and false signals. Whether it's crypto sentiment shifts, breaking TradFi news, or emerging sports betting trends, you'll know about significant developments as they happen – giving you the time advantage needed in today's fast-moving markets.",
-
-    
+    title: "Whale Tracking",
+    description: "Follow the smart money. Real-time alerts when major wallets make moves.",
+    image: "/cryptoWhale.png"
   },
   {
-    image: "/bloomberg_default-a4f15fa7ee.jpg", // Image-only box
+    title: "Risk Protection", 
+    description: "Automated rug detection, liquidity analysis, and manipulation alerts.",
+    image: "/shield.png"
   },
   {
-    image: "/bet365.png", // Image-only box
+    title: "Live Performance",
+    description: "Real-time PnL tracking, trade history, and tournament rankings.",
+    image: "/livechart.png"
   },
   {
-    title: "Crypto Market Dynamics",
-    description:
-      "Track whale movements, DEX volumes, and on-chain metrics in real-time. Our AI analyzes smart contract interactions and token flows to predict potential market impacts and identify emerging trends.",
+    title: "Hot Token Alerts",
+    description: "Instant notifications when multiple pros buy the same token.",
+    image: "/fire.png"
   },
   {
-    title: "TradFi Deep Dive",
-    description:
-      "Live analysis of earnings reports, SEC filings, and insider trading patterns. Our AI reads between the lines, connecting dots across global markets to surface hidden opportunities.",
-  },
-  {
-    title: "Sports Analytics Edge",
-    description:
-      "Beyond basic stats: our AI processes player performance data, weather patterns, historical matchups, and social media sentiment to generate sophisticated betting insights with probability distributions.",
-  },
-  {
-    image: "/cmclogo.svg", // Image-only box
-  },
-  {
-    title: "Cross-Market Correlations",
-    description:
-      "Discover hidden relationships between sports events, market movements, and crypto trends. Our AI identifies how major events in one sector ripple across others, giving you a truly holistic view.",
+    title: "Trader Leaderboard",
+    description: "Compete for glory. Track the best performers and their strategies.",
+    image: "/leaderboard.png"
   }
-  
-  
-];
+ ];
 
 export const BentoGrid = ({ className }) => {
   return (
@@ -114,63 +102,26 @@ export const BentoGridItem = ({
       {/* Content Container */}
       <div className="relative z-10 h-full w-full flex flex-col justify-center">
         {/* Image with reduced container size */}
-        {image && (
-          <div className="flex items-center justify-center w-full h-full p-1 sm:p-2">
-            <div className="relative w-full max-w-[85%] aspect-[4/3]">
-              <img
-                src={image}
-                alt={title}
-                className="rounded-lg object-contain w-full h-full"
-              />
-            </div>
-          </div>
-        )}
+        
         
         {/* Text Content with reduced spacing */}
-        {!image && (
-          <>
-            <h3 className="text-sm sm:text-base md:text-lg font-bold mb-1 sm:mb-2 text-white font-satoshi">
-              {title}
-            </h3>
-            {Array.isArray(description) && (
-              <div className="grid grid-cols-2 gap-1 sm:gap-2 w-full">
-                {/* Left Column */}
-                <ul className="text-left">
-                  {description.slice(0, Math.ceil(description.length / 2)).map((item, index) => (
-                    <li 
-                      key={index}
-                      className="text-white flex items-center gap-1 mb-1 font-satoshi"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-white/70 flex-shrink-0"/>
-                      <span className="text-xs sm:text-sm font-semibold">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                {/* Right Column */}
-                <ul className="text-left">
-                  {description.slice(Math.ceil(description.length / 2)).map((item, index) => (
-                    <li 
-                      key={index}
-                      className="text-white flex items-center gap-1 mb-1 font-satoshi"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-white/70 flex-shrink-0"/>
-                      <span className="text-xs sm:text-sm font-semibold">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {!Array.isArray(description) && (
-              <p className="text-xs sm:text-sm font-semibold text-white font-satoshi">
-                {description}
-              </p>
-            )}
-          </>
-        )}
+        {image && (
+  <div className="flex flex-col items-center justify-center w-full h-full gap-2">
+    <div className="relative w-12 h-12 sm:w-16 sm:h-16">
+      <img
+        src={image}
+        alt={title}
+        className="object-contain w-full h-full"
+      />
+    </div>
+    <h3 className="text-sm sm:text-base font-bold text-white">
+      {title}
+    </h3>
+    <p className="text-xs sm:text-sm font-semibold text-white/70 ">
+      {description}
+    </p>
+  </div>
+)}
       </div>
     </motion.div>
   );

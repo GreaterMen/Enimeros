@@ -25,44 +25,38 @@ export const Timeline = ({
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
-    (<div
-      className="w-full bg-white bg-dot-black/[0.2] bg-repeat min-h-screen dark:bg-neutral-950 font-sans md:px-10"
-      ref={containerRef}>
+    (<div className="w-screenbg-repeat min-h-screen" style={{ backgroundColor: '#1A1A2E' }}>
       <div className="max-w-7xl mx-auto pt-20 px-4 md:px-8 lg:px-10">
         <h2 className="bg-clip-text 
     text-transparent 
     text-center 
     bg-gradient-to-b 
-    from-neutral-900 
-    to-neutral-700 
-    dark:from-neutral-600 
-    dark:to-white 
+    text-white
     text-2xl 
     md:text-4xl 
     lg:text-7xl 
     xl:text-8xl 
     2xl:text-9xl 
-    font-sans 
     py-2 
     md:py-10 
     relative 
     z-20 
     font-bold 
     tracking-tight">
-          Roadmap
+          Tournament
         </h2>
         <p
-          className="bg-clip-text text-center text-neutral-500 dark:text-neutral-300 text-sm md:text-base bg-gradient-to-b md:text-2xl 
+          className="bg-clip-text text-center text-white text-sm md:text-base bg-gradient-to-b md:text-2xl 
     lg:text-3xl 
     xl:text-4xl 
     2xl:text-5xl 
-    font-sans 
+
     py-2 
     md:py-10 
     relative 
     z-20 
     tracking-tight">
-          The vision we have for our future.
+          How to participate?
         </p>
       </div>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
@@ -76,14 +70,14 @@ export const Timeline = ({
                   className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
               <h3
-                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500 ">
+                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-white ">
                 {item.title}
               </h3>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
               <h3
-                className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+                className="md:hidden block text-2xl mb-4 text-left font-bold text-white">
                 {item.title}
               </h3>
               {item.content}{" "}
